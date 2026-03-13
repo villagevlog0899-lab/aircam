@@ -21,47 +21,51 @@
         .header-btns { display: flex; gap: 12px; }
         .icon-btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.1); color: white; padding: 8px 12px; border-radius: 10px; cursor: pointer; backdrop-filter: blur(10px); }
 
-        /* Full Screen UI Centering */
-        .viewport-center { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; z-index: 100; background: rgba(0,0,0,0.5); }
-        .menu-ui { display: flex; flex-direction: column; gap: 18px; width: 100%; max-width: 400px; }
+        /* CENTER ALIGNMENT FIX */
+        .viewport-center { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; z-index: 100; position: relative; }
+        .menu-ui { display: flex; flex-direction: column; gap: 18px; width: 100%; max-width: 400px; align-items: center; }
         
         .btn-main { width: 100%; padding: 25px; border: none; border-radius: 25px; font-size: 1.4rem; font-weight: 700; cursor: pointer; color: white; box-shadow: 0 10px 40px rgba(0,0,0,0.6); display: flex; flex-direction: column; align-items: center; }
         .btn-main small { font-size: 0.8rem; opacity: 0.8; margin-top: 5px; font-weight: 400; }
         .btn-share { background: linear-gradient(45deg, #11998e, #38ef7d); }
         .btn-take { background: linear-gradient(45deg, var(--primary), var(--secondary)); }
         
-        #reconnect-btn { background: #111; border: 1px dashed var(--primary); color: var(--primary); padding: 15px; border-radius: 20px; cursor: pointer; display: none; width: 100%; max-width: 400px; font-weight: bold; margin-top: 20px; }
+        #reconnect-btn { background: #111; border: 1px dashed var(--primary); color: var(--primary); padding: 15px; border-radius: 15px; cursor: pointer; display: none; width: 100%; max-width: 400px; font-weight: bold; margin-top: 20px; text-transform: uppercase; letter-spacing: 1px; }
 
+        /* FULL SCREEN VIDEO */
         .section { display: none; width: 100vw; height: 100vh; position: absolute; top:0; left:0; z-index: 50; }
         #remote-video, #broadcaster-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; background: #000; z-index: 1; }
 
-        /* Floating Controls */
+        /* FLOATING CONTROLS */
         .control-wrapper { position: absolute; bottom: 20px; right: 20px; z-index: 1001; display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
         .toggle-btn { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.2); color: white; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(15px); }
-        .floating-controls { width: 330px; background: var(--card-bg); backdrop-filter: blur(25px); padding: 15px; border-radius: 30px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; border: 1px solid rgba(255,255,255,0.1); transition: 0.4s; box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
+        .floating-controls { width: 330px; background: var(--card-bg); backdrop-filter: blur(25px); padding: 15px; border-radius: 30px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; border: 1px solid rgba(255,255,255,0.1); transition: 0.4s; box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
         .controls-hidden { transform: translateY(130%); opacity: 0; pointer-events: none; }
         @media (max-width: 650px) { .control-wrapper { width: calc(100% - 40px); left: 20px; bottom: 20px; } .floating-controls { width: 100%; } }
 
         .btn-action { padding: 10px 2px; border: none; border-radius: 12px; font-weight: bold; cursor: pointer; color: white; font-size: 0.65rem; display: flex; flex-direction: column; align-items: center; gap: 4px; }
         .btn-blue { background: #3b82f6; } .btn-red { background: var(--danger); } .btn-gray { background: #444; } .btn-orange { background: #f39c12; } .btn-green { background: #2ecc71; }
-        .btn-ptt { grid-column: span 4; background: #8e44ad; font-size: 0.85rem; padding: 15px; flex-direction: row; justify-content: center; gap: 10px; }
+        .btn-ptt { grid-column: span 4; background: #8e44ad; font-size: 0.85rem; padding: 12px; flex-direction: row; justify-content: center; gap: 10px; }
 
-        /* Broadcaster Bottom Bar */
-        .broadcaster-bar { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 1002; display: flex; flex-direction: column; gap: 15px; width: 280px; background: rgba(0,0,0,0.8); padding: 20px; border-radius: 25px; backdrop-filter: blur(10px); }
+        /* BROADCASTER PANEL */
+        .broadcaster-bar { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 1002; display: flex; flex-direction: column; gap: 15px; width: 280px; background: rgba(0,0,0,0.85); padding: 20px; border-radius: 25px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
 
         .info-panel { position: absolute; top: 80px; left: 20px; z-index: 1000; display: flex; flex-direction: column; gap: 8px; }
-        .badge { background: rgba(0,0,0,0.7); padding: 6px 12px; border-radius: 10px; font-size: 0.75rem; border: 1px solid rgba(255,255,255,0.1); color: var(--success); }
+        .badge { background: rgba(0,0,0,0.7); padding: 6px 12px; border-radius: 10px; font-size: 0.75rem; border: 1px solid rgba(255,255,255,0.1); color: var(--success); font-weight: bold; }
         .motion-alert { color: var(--danger); font-weight: bold; animation: blink 0.5s infinite; display: none; }
         @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.2; } }
 
-        /* Overlays */
-        #play-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 5000; display: none; flex-direction: column; justify-content: center; align-items: center; cursor: pointer; }
+        /* MODALS */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); z-index: 2000; padding: 25px; overflow-y: auto; text-align: center; }
+        #play-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 6000; display: none; flex-direction: column; justify-content: center; align-items: center; cursor: pointer; }
+
         .qr-card { background: white; padding: 15px; border-radius: 20px; display: inline-block; margin-bottom: 15px; }
+        .id-badge-large { font-size: 2.5rem; font-weight: 800; color: var(--primary); letter-spacing: 5px; margin: 10px 0; }
+        #reader { width: 280px; height: 280px; border-radius: 20px; overflow: hidden; border: 2px solid #333; margin-bottom: 20px; }
 
         .hidden { display: none !important; }
         .filter-nv { filter: sepia(1) hue-rotate(90deg) brightness(1.4) !important; }
-        .filter-bw { filter: grayscale(1) !important; }
+        .filter-bw { filter: grayscale(1) brightness(1.2) !important; }
     </style>
 </head>
 <body>
@@ -80,9 +84,9 @@
         <div class="badge motion-alert" id="motion-ui">⚠️ MOTION DETECTED</div>
     </div>
 
-    <!-- Handshake Overlay -->
+    <!-- CONNECTION START OVERLAY -->
     <div id="play-overlay" onclick="forcePlayStream()">
-        <button class="btn-main btn-take" style="max-width: 280px;">CLICK TO START VIEWING</button>
+        <button class="btn-main btn-take" style="max-width: 280px;">START VIEWING<small>Click to unmute & play</small></button>
     </div>
 
     <!-- HOME MENU -->
@@ -100,53 +104,47 @@
         </div>
     </div>
 
-    <!-- SHARE MODE -->
+    <!-- SHARE MODE SCREEN -->
     <div id="share-ui" class="section">
         <div class="viewport-center" id="share-setup" style="background: rgba(0,0,0,0.9);">
-            <div id="reader" style="width: 300px; height: 300px; border-radius: 20px; overflow: hidden; border: 2px solid #333;"></div>
-            <div style="font-size: 2.2rem; font-weight: 800; color: var(--primary); letter-spacing: 5px; margin: 15px 0;" id="my-share-id">...</div>
-            <p style="color:#aaa;">Broadcaster ID: Share this with the Viewer</p>
-            <div style="display:flex; gap:10px; margin-top: 10px;">
-                <input type="text" id="share-target-id" placeholder="Viewer ID" style="padding:15px; border-radius:12px; border:none; width:130px; font-weight:bold; text-align:center; color:#000;">
+            <div id="reader"></div>
+            <div class="id-badge-large" id="my-share-id">...</div>
+            <p style="color:#aaa;">Give ID to Viewer or Scan their QR</p>
+            <div style="display:flex; gap:10px; margin-top:10px;">
+                <input type="text" id="share-target-id" placeholder="Viewer ID" style="padding:15px; border-radius:15px; border:none; width:130px; font-weight:bold; text-align:center; color:#000;">
                 <button class="btn-action btn-blue" style="width:100px; font-size:0.9rem;" onclick="manualConnect('share')">CONNECT</button>
             </div>
-            <button class="btn-action btn-gray" style="margin-top:20px; width:150px; padding:12px;" onclick="resetApp()">CANCEL</button>
+            <button class="btn-action btn-gray" style="margin-top:25px; width:160px; padding:15px;" onclick="resetApp()">CANCEL</button>
         </div>
-
         <video id="broadcaster-video" autoplay playsinline muted></video>
-        
-        <!-- Broadcaster Local Tools -->
         <div id="broadcaster-tools" class="hidden">
             <div class="broadcaster-bar">
-                <div style="display:flex; justify-content:space-between; align-items:center;">
-                    <span>Audio Mic:</span>
+                <div style="display:flex; justify-content:space-between; align-items:center; color:white;">
+                    <span>Mic Audio:</span>
                     <button id="mute-btn" class="btn-action btn-blue" style="width:100px; padding:10px;" onclick="toggleMute()">MUTE</button>
                 </div>
                 <div style="display:flex; flex-direction:column; gap:5px;">
                     <span style="font-size:0.75rem; text-align:center;">LOCAL ZOOM</span>
                     <input type="range" min="1" max="5" step="0.1" value="1" style="width:100%; accent-color:var(--success);" oninput="applyLocalZoom(this.value)">
                 </div>
-                <button class="btn-action btn-red" style="width:100%; padding:12px;" onclick="handleDisconnect()">STOP STREAM</button>
+                <button class="btn-action btn-red" style="width:100%; padding:12px; font-size: 1rem;" onclick="handleDisconnect()">STOP BROADCAST</button>
             </div>
         </div>
     </div>
 
-    <!-- TAKE MODE -->
+    <!-- TAKE MODE SCREEN -->
     <div id="take-ui" class="section">
         <div id="take-setup" class="viewport-center" style="background: rgba(0,0,0,0.9);">
             <div class="qr-card"><div id="qrcode-container"></div></div>
-            <div style="font-size: 2.2rem; font-weight: 800; color: var(--primary); letter-spacing: 5px;" id="my-take-id">...</div>
-            <p style="color:#aaa;">Viewer ID: Show QR or share ID</p>
-            <div style="display:flex; gap:10px;">
-                <input type="text" id="take-target-id" placeholder="Camera ID" style="padding:15px; border-radius:12px; border:none; width:130px; font-weight:bold; text-align:center; color:#000;">
+            <div class="id-badge-large" id="my-take-id">...</div>
+            <p style="color:#aaa;">Show QR or Enter Broadcaster ID below</p>
+            <div style="display:flex; gap:10px; margin-top:10px;">
+                <input type="text" id="take-target-id" placeholder="Broadcaster ID" style="padding:15px; border-radius:15px; border:none; width:130px; font-weight:bold; text-align:center; color:#000;">
                 <button class="btn-action btn-blue" style="width:110px; font-size:0.9rem;" onclick="manualConnect('take')">TAKE CAM</button>
             </div>
-            <button class="btn-action btn-gray" style="margin-top:20px; width:150px; padding:12px;" onclick="resetApp()">BACK</button>
+            <button class="btn-action btn-gray" style="margin-top:25px; width:180px; padding:15px;" onclick="resetApp()">BACK</button>
         </div>
-
         <video id="remote-video" autoplay playsinline muted></video>
-        
-        <!-- Viewer Command Center -->
         <div class="control-wrapper hidden" id="remote-ui">
             <button class="toggle-btn" onclick="toggleControls()" id="arrow-btn">▼</button>
             <div class="floating-controls" id="controls-panel">
@@ -154,33 +152,31 @@
                 <button class="btn-action btn-red" id="record-btn" onclick="toggleRecording()">🔴<span>REC</span></button>
                 <button class="btn-action btn-gray" onclick="rotateVideo()">🔄<span>ROT</span></button>
                 <button class="btn-action btn-orange" onclick="cycleFilters()">✨<span>FLTR</span></button>
-                
                 <button class="btn-action btn-orange" onclick="sendCommand('torch')">🔦<span>FLSH</span></button>
                 <button class="btn-action btn-green" onclick="sendCommand('flip')">🔄<span>FLIP</span></button>
                 <button class="btn-action btn-red" onclick="sendCommand('alarm')">🚨<span>ALRM</span></button>
                 <button class="btn-action btn-gray" id="motion-btn" onclick="toggleMotion()">🛡️<span>MTION</span></button>
-                
                 <button class="btn-action btn-ptt" id="ptt-btn">🎤 PUSH TO TALK</button>
-                
                 <div style="grid-column: span 4;"><input type="range" id="zoom-range" min="1" max="5" step="0.1" value="1" style="width:100%; accent-color: var(--primary);" oninput="sendZoom(this.value)"></div>
                 <button class="btn-action btn-gray btn-disconnect" style="grid-column: span 4;" onclick="handleDisconnect()">DISCONNECT</button>
             </div>
         </div>
     </div>
 
-    <!-- Modals -->
+    <!-- GALLERY MODAL -->
     <div id="gallery-modal" class="modal">
-        <h2>Gallery</h2><div id="gallery-items" style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:20px;"></div>
-        <button class="btn-action btn-red" style="margin-top:30px; width:100%; padding:15px;" onclick="hideGallery()">CLOSE</button>
+        <h2 style="font-weight: 800;">AirCam Gallery</h2>
+        <div id="gallery-items" style="display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-top:20px;"></div>
+        <button class="btn-action btn-red" style="margin-top:40px; width:100%; padding:18px; font-size:1.1rem;" onclick="hideGallery()">CLOSE</button>
     </div>
 
     <div id="info-modal" class="modal">
         <div style="max-width:500px; margin:auto; text-align: left;">
             <h2>AirCam Master</h2>
-            <p>1. <b>Two-Way Connection:</b> Scan QR OR enter either Broadcaster ID or Viewer ID to connect.</p>
-            <p>2. <b>Controls:</b> Full remote command center for Viewer. Mute & Zoom for Broadcaster.</p>
-            <p>3. <b>Audio:</b> Click "START VIEWING" to hear live sound from the camera.</p>
-            <p>4. <b>Designed by:</b> Anas Javed.</p>
+            <p>1. <b>Push ID:</b> Broadcaster enters Viewer ID to send video.</p>
+            <p>2. <b>Pull ID:</b> Viewer enters Broadcaster ID to request video.</p>
+            <p>3. <b>Zoom:</b> Both devices now have local/remote zoom control.</p>
+            <p>4. <b>Credit:</b> Designed by <b>Anas Javed</b>.</p>
             <center><button class="btn-action btn-blue" style="margin-top:20px; width:120px;" onclick="closeInfo()">OK</button></center>
         </div>
     </div>
@@ -207,7 +203,7 @@
             checkLastSession();
         });
 
-        // HANDSHAKE LISTENERS
+        // 1. RECEIVING VIDEO CALL
         peer.on('call', call => {
             call.answer(viewerMicStream); currentCall = call;
             call.on('stream', s => {
@@ -218,34 +214,29 @@
             });
         });
 
+        // 2. RECEIVING DATA & COMMANDS
         peer.on('connection', conn => { 
             currentConn = conn; 
             conn.on('open', () => {
                 saveSession(conn.peer);
                 conn.on('data', d => {
                     if(d.type === 'remote-disconnect') resetApp();
-                    if(d.type === 'pull-request' && localStream) { connect(conn.peer); }
+                    if(d.type === 'request-stream' && localStream) { connect(conn.peer); }
                     if(d.type === 'torch' && localStream) { isTorch = !isTorch; localStream.getVideoTracks()[0].applyConstraints({advanced:[{torch:isTorch}]}).catch(e=>{}); }
                     if(d.type === 'flip' && localStream) { currentFacing = (currentFacing === "environment") ? "user" : "environment"; startCamera(currentFacing); }
                     if(d.type === 'alarm') siren.play();
-                    if(d.type === 'zoom' && localStream) localStream.getVideoTracks()[0].applyConstraints({advanced:[{zoom:d.value}]}).catch(e=>{});
+                    if(d.type === 'zoom' && localStream) applyConstraint('zoom', d.value);
                     if(d.type === 'stats') document.getElementById('batt-val').innerText = d.batt;
                 });
             });
         });
 
-        // --- CORE FUNCTIONS ---
         async function initShareMode() {
             document.getElementById('menu-ui').classList.add('hidden');
             document.getElementById('share-ui').style.display = 'block';
             if ('wakeLock' in navigator) wakeLock = await navigator.wakeLock.request('screen');
             startCamera(currentFacing);
-            setInterval(async () => {
-                if(currentConn && navigator.getBattery) {
-                    const b = await navigator.getBattery();
-                    currentConn.send({ type: 'stats', batt: Math.round(b.level * 100) });
-                }
-            }, 5000);
+            setInterval(async () => { if(currentConn && navigator.getBattery) { const b = await navigator.getBattery(); currentConn.send({ type: 'stats', batt: Math.round(b.level * 100) }); } }, 5000);
         }
 
         async function startCamera(facing) {
@@ -253,22 +244,10 @@
             localStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: facing, zoom: true }, audio: true });
             document.getElementById('broadcaster-video').srcObject = localStream;
             document.getElementById('broadcaster-tools').classList.remove('hidden');
-            if(currentCall) {
-                const videoTrack = localStream.getVideoTracks()[0];
-                currentCall.peerConnection.getSenders().find(s => s.track.kind === 'video').replaceTrack(videoTrack);
-            }
+            if(currentCall) { const videoTrack = localStream.getVideoTracks()[0]; currentCall.peerConnection.getSenders().find(s => s.track.kind === 'video').replaceTrack(videoTrack); }
             const scn = new Html5Qrcode("reader");
             scn.start({ facingMode: "environment" }, { fps: 10, qrbox: 250 }, (id) => { scn.stop(); connect(id); }).catch(e=>{});
         }
-
-        function toggleMute() {
-            isMuted = !isMuted;
-            localStream.getAudioTracks()[0].enabled = !isMuted;
-            document.getElementById('mute-btn').innerText = isMuted ? "UNMUTE" : "MUTE";
-            document.getElementById('mute-btn').style.background = isMuted ? "var(--danger)" : "var(--primary)";
-        }
-
-        function applyLocalZoom(v) { if(localStream) localStream.getVideoTracks()[0].applyConstraints({advanced:[{zoom:v}]}).catch(e=>{}); }
 
         function connect(id) {
             saveSession(id);
@@ -288,11 +267,11 @@
         function manualConnect(mode) {
             const idVal = (mode === 'share') ? document.getElementById('share-target-id').value : document.getElementById('take-target-id').value;
             const tid = idVal.trim().toUpperCase();
-            if(tid.length < 3) return alert("Invalid ID");
+            if(tid.length < 3) return alert("Enter Valid ID");
             if(mode === 'share') { connect(tid); } 
             else { 
                 currentConn = peer.connect(tid); 
-                currentConn.on('open', () => currentConn.send({type: 'pull-request'}));
+                currentConn.on('open', () => currentConn.send({type: 'request-stream'}));
             }
         }
 
@@ -302,13 +281,23 @@
             document.getElementById('play-overlay').style.display = 'none';
             document.getElementById('remote-ui').classList.remove('hidden');
             document.getElementById('ui-info-panel').classList.remove('hidden');
-            if(motionEnabled) detectMotion();
         }
 
-        // --- TOOLS ---
+        // --- ZOOM LOGIC ---
+        function applyConstraint(type, val) {
+            if(!localStream) return;
+            const track = localStream.getVideoTracks()[0];
+            const constraints = { advanced: [{ [type]: val }] };
+            track.applyConstraints(constraints).catch(e => console.log("Constraint Failed", e));
+        }
+
+        function applyLocalZoom(v) { applyConstraint('zoom', v); }
+        function sendZoom(v) { if(currentConn) currentConn.send({ type: 'zoom', value: v }); }
+
+        // --- OTHER TOOLS ---
         function toggleControls() { controlsVisible = !controlsVisible; document.getElementById('controls-panel').classList.toggle('controls-hidden', !controlsVisible); document.getElementById('arrow-btn').innerText = controlsVisible ? "▼" : "▲"; }
         function sendCommand(cmd) { if(currentConn) currentConn.send({ type: cmd }); }
-        function sendZoom(v) { if(currentConn) currentConn.send({ type: 'zoom', value: v }); }
+        function toggleMute() { isMuted = !isMuted; localStream.getAudioTracks()[0].enabled = !isMuted; document.getElementById('mute-btn').innerText = isMuted ? "UNMUTE" : "MUTE"; document.getElementById('mute-btn').style.background = isMuted ? "var(--danger)" : "var(--primary)"; }
         function rotateVideo() { rotation = (rotation + 90) % 360; const v = document.getElementById('remote-video'); v.style.transform = `rotate(${rotation}deg)`; v.style.scale = (rotation === 90 || rotation === 270) ? "0.7" : "1"; }
         function cycleFilters() { filterIndex = (filterIndex + 1) % 3; const v = document.getElementById('remote-video'); v.className = (filterIndex === 1) ? "filter-nv" : (filterIndex === 2) ? "filter-bw" : ""; }
         function toggleMotion() { motionEnabled = !motionEnabled; document.getElementById('motion-btn').style.background = motionEnabled ? "var(--danger)" : "#444"; if(motionEnabled) detectMotion(); }
@@ -316,13 +305,12 @@
             if(!motionEnabled) return;
             const v = document.getElementById('remote-video');
             const canv = document.getElementById('motion-canvas');
-            const ctx = canv.getContext('2d');
-            canv.width = 64; canv.height = 48; ctx.drawImage(v, 0, 0, 64, 48);
+            const ctx = canv.getContext('2d'); canv.width = 64; canv.height = 48; ctx.drawImage(v, 0, 0, 64, 48);
             const data = ctx.getImageData(0,0,64,48).data;
             if(prevFrame) {
                 let diff = 0;
                 for(let i=0; i<data.length; i+=4) diff += Math.abs(data[i] - prevFrame[i]);
-                if(diff > 250000) { document.getElementById('motion-ui').style.display = 'block'; alertSound.play(); setTimeout(() => document.getElementById('motion-ui').style.display = 'none', 1500); }
+                if(diff > 250000) { document.getElementById('motion-ui').style.display = 'block'; siren.play(); setTimeout(() => document.getElementById('motion-ui').style.display = 'none', 1500); }
             }
             prevFrame = data; requestAnimationFrame(detectMotion);
         }
@@ -336,17 +324,15 @@
         function toggleRecording() { const v = document.getElementById('remote-video'); if (mediaRecorder && mediaRecorder.state === "recording") { mediaRecorder.stop(); document.getElementById('record-btn').innerText = "🔴 REC"; } else { recordedChunks = []; mediaRecorder = new MediaRecorder(v.srcObject); mediaRecorder.ondataavailable = e => recordedChunks.push(e.data); mediaRecorder.onstop = () => { const blob = new Blob(recordedChunks, { type: 'video/webm' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'Vid.webm'; a.click(); addToGallery(url, 'vid'); }; mediaRecorder.start(); document.getElementById('record-btn').innerText = "⏹️ STOP"; } }
         function addToGallery(url, type) { const grid = document.getElementById('gallery-items'); const el = (type === 'img') ? `<img src="${url}" style="width:100%; border-radius:10px;">` : `<video src="${url}" style="width:100%; border-radius:10px;" controls></video>`; grid.innerHTML += el; }
 
-        function saveSession(id) { localStorage.setItem('aircam_last', JSON.stringify({id, time: Date.now()})); }
+        function saveSession(id) { localStorage.setItem('aircam_last', JSON.stringify({id, time: Date.now()})); checkLastSession(); }
         function checkLastSession() {
             const last = JSON.parse(localStorage.getItem('aircam_last'));
             if(last && (Date.now() - last.time < 600000)) {
                 const btn = document.getElementById('reconnect-btn');
-                btn.style.display = 'block';
-                btn.innerText = `⚡ QUICK RECONNECT TO ${last.id}`;
-                btn.onclick = () => { document.getElementById('share-target-id').value = last.id; document.getElementById('take-target-id').value = last.id; alert("ID Auto-Filled! Just click CONNECT/TAKE."); };
+                btn.style.display = 'block'; btn.innerText = `⚡ QUICK RECONNECT TO ${last.id}`;
+                btn.onclick = () => { document.getElementById('take-target-id').value = last.id; document.getElementById('share-target-id').value = last.id; alert("ID Auto-Filled! Click CONNECT or TAKE CAM."); };
             }
         }
-
         function handleDisconnect() { if(currentConn) currentConn.send({ type: 'remote-disconnect' }); resetApp(); }
         function resetApp() { if(wakeLock) wakeLock.release(); location.reload(); }
         function toggleTheme() { document.body.classList.toggle('theme-purple'); }
